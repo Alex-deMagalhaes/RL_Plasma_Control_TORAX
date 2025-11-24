@@ -1,8 +1,6 @@
 # Plasma Control for Tokamak Fusion Plasma Using Reinforcement Learning
 
-This project simulates a **150-second plasma discharge** in the **ITER tokamak** (see [ITER overview](https://en.wikipedia.org/wiki/ITER)). The goal is to investigate whether **Reinforcement Learning (RL)** can be used to control fusion plasma in real time by achieving key operational objectives while avoiding known plasma instabilities and disruptions.
-
-A reinforcement learning agent is given control over the same physical actuators (“levers”) that a real tokamak control system can manipulate. It is also restricted to the same **partial observability** constraints: only state variables observable by real diagnostic sensors are visible to the agent. This makes the problem both realistic and challenging.
+This project simulates a **150-second plasma discharge** in the **ITER tokamak** (see [ITER overview](https://en.wikipedia.org/wiki/ITER)). We seek to use reinforcement learning (RL) to demonstrate control of the plasma over these 150 seconds by achieving certain objectives while avoiding potential instabilities and disruptions, all in real-time. Our RL agent has control over some levers that a real tokamak controller will have access to and only has the same visibility into the state of the plasma that a real tokamak, based on diagnostics sensors, would be able to see.
 
 ---
 
