@@ -100,7 +100,7 @@ Disruptions happen on millisecond timescales and pose severe risk to tokamak har
 The policy must avoid known disruptive conditions such as:
 
 - **Safety factor** \( q < 1 \) — associated with sawtooth crashes and internal kinks  
-- **Greenwald fraction** \( f_G \rightarrow 1 \) — density-limit disruptions  
+- **Greenwald fraction** \( f_G < 1 \) — density-limit disruptions  
 
 ### **4. Achieve Fast Inference**
 Fast inference is essential: control decisions must be made quickly enough to react to developing instabilities.
