@@ -4,26 +4,25 @@ This project simulates a **150-second plasma discharge** in the **ITER tokamak**
 
 ---
 
-## 🚀 Project Description
+## Project Description
 
-Magnetic confinement fusion in a tokamak depends on precisely controlling plasma shape, current, temperature, and stability. In this project, we simulate a hypothetical ITER plasma discharge lasting **150 seconds** and evaluate whether a modern RL controller can:
+Magnetic confinement fusion in a tokamak depends on precisely controlling plasma shape, current, temperature, and stability. In this project, we simulate a hypothetical ITER plasma discharge lasting **150 seconds** and evaluate whether an RL controller can:
 
 - Maintain plasma shape and position  
 - Maximize fusion power output  
 - Avoid disruptions and unstable operating regions  
 - Operate with fast, real-time inference  
-- Learn robust control policies under **partial observability**
 
-The RL agent interacts with a tokamak simulation environment (e.g., `Gym_TORAX_IterHybrid-v0`) built to emulate realistic actuator constraints, diagnostic measurements, plasma behavior, and stability boundaries.
+The RL agent interacts with a tokamak simulation environment built to emulate realistic actuator constraints, diagnostic measurements, plasma behavior, and stability boundaries.
 
 ---
 
-## 🕹 Action Space
+## Action Space
 
-The RL agent can control several actuators commonly used in tokamak operation. These parameters, taken from **`Gym_TORAX_IterHybrid-v0_env - Action Space.csv`**, include:
+The RL agent can control several actuators commonly used in tokamak operation. These parameters, listed in **`Gym_TORAX_IterHybrid-v0_env - Action Space.csv`**, include:
 
-### 1. **Plasma Current Control (Central Solenoid)**
-Tokamak control requires cooperation between external magnetic coils and a strong **toroidal plasma current** driven by the central solenoid.
+### 1. **Plasma Current Control**
+In a tokamak, controlling the plasma through external magnetic fields alone is impossible. Control requires that the external electric coils work in conjunction with a central solenoid which drives a toroidal electric current in the plasma itself. The agent has control over this central solenoid, and can ramp up and down the plasma current as necessary to maintain shape control.
 
 - **Control:** Plasma current (Ip) ramping  
 - **Purpose:** Maintain plasma shape and assist magnetic confinement  
@@ -34,7 +33,7 @@ Tokamak control requires cooperation between external magnetic coils and a stron
 ---
 
 ### 2. **Neutral Beam Injection (NBI)**
-NBI injects high-energy neutral particles into the plasma, heating it and helping reach **burning plasma** conditions.
+NBI injects high-energy neutral particles into the plasma. This is one of the primary ways to heat the plasma until the plasma is considered a "burning plasma" (the point at which fusion reactions within the plasma generate enough heat to make the reaction self-sustaining).
 
 - **Control:**  
   - Total NBI power  
@@ -47,7 +46,7 @@ NBI injects high-energy neutral particles into the plasma, heating it and helpin
 ---
 
 ### 3. **Electron Cyclotron Resonance Heating (ECRH)**
-Microwave heating mechanism used for precise electron heating and stability control.
+This is a microwave heating mechanism used for precise electron heating and stability control.
 
 - **Control:**  
   - Total ECRH power  
@@ -59,7 +58,7 @@ Microwave heating mechanism used for precise electron heating and stability cont
 
 ---
 
-## 📡 State Space
+## State Space
 
 The state space, described in **`Gym_TORAX_IterHybrid-v0_env - State Space.csv`**, includes roughly **150 scalar and vector variables** representing:
 
@@ -75,7 +74,7 @@ The agent must therefore learn a policy under **partial observability**, making 
 
 ---
 
-## 🧠 Reinforcement Learning Algorithm
+## Reinforcement Learning Algorithm
 
 **The RL algorithm is TBD**, with current candidates including:
 
@@ -86,28 +85,29 @@ The final choice will depend on performance under real-time constraints and stab
 
 ---
 
-## 🎯 Objectives
+## Objectives
 
 The RL controller aims to:
 
-### ✔ **1. Maintain Plasma Shape and Magnetic Equilibrium**
+### **1. Maintain Plasma Shape and Magnetic Equilibrium**
 Keep plasma within desired boundaries and avoid drift or loss of confinement.
 
-### ✔ **2. Maximize Fusion Power Output**
+### **2. Maximize Fusion Power Output**
 Steer thermodynamic and geometric conditions toward high performance while avoiding over-driving.
 
-### ✔ **3. Avoid Major Disruptions**
+### **3. Avoid Major Disruptions**
 Disruptions happen on millisecond timescales and pose severe risk to tokamak hardware.  
 The policy must avoid known disruptive conditions such as:
 
 - **Safety factor** \( q < 1 \) — associated with sawtooth crashes and internal kinks  
 - **Greenwald fraction** \( f_G \rightarrow 1 \) — density-limit disruptions  
 
-Fast inference is essential: **control decisions must be made quickly enough to react to developing instabilities**.
+### **4. Achieve Fast Inference**
+Fast inference is essential: control decisions must be made quickly enough to react to developing instabilities.
 
 ---
 
-## 📂 Repository Structure (proposed)
+## Repository Structure (proposed)
 
 ```text
 /
