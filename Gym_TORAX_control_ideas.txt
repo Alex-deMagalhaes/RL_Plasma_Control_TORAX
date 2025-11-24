@@ -1,0 +1,15 @@
+Some good RL control problems to solve with Gym-TORAX:
+
+1) q-profile control
+  - Minimize || q(r, t) - q_{target}(r, t) ||^2
+
+2) psi-profile control
+  - Minimize || \psi(r, t) - \psi_{target}(r, t) ||^2
+
+3) temperature control
+  - Minimize || T_e(r, t) - T_e_{target}(r, t) ||^2
+  - Alternatively: maximize H98 or H89
+
+4) maximize fusion output while avoiding potential instabilities
+  - Maximize Q_fusion subject to q_min > 1 and Greenwald fraction < 0.9
+  - Bonus objectives: \beta_N < 2.5 (keep normalized plasma beta lower), q != 3/2, 2, 4/3, etc.

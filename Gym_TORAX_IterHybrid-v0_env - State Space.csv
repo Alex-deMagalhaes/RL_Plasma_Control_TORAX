@@ -1,0 +1,158 @@
+,NAME,TYPE,DESCRIPTION,OBSERVABLE?
+Temperature profiles,,,,
+,T_e,vector,Electron temperature across the radius; key driver of fusion reactivity and confinement (keV).,Yes
+,T_i,vector,Ion temperature across the plasma radius; tells how hot the ions are from center to edge (keV).,Yes
+Density profiles,,,,
+,n_e,vector,Electron density profile; number of electrons per cubic meter across the plasma radius (m^-3).,Yes
+,n_i,vector,Ion density profile; determines pressure and fusion fuel content (m^-3).,No
+,n_impurity,vector,Impurity ion density; affects radiation losses and plasma dilution (m^-3).,No
+,Z_eff,vector,Effective ion charge.,No
+,Z_i,vector,Main ion charge.,No
+,Z_impurity,vector,Impurity ion charge.,No
+Magnetic geometry / equilibrium,,,,
+,psi,vector,Poloidal magnetic flux; defines magnetic surfaces and confinement structure.,Yes
+,psi_norm,vector,"Normalized poloidal magnetic flux (0=core, 1=edge).",Yes
+,spr,vector,Derivative of poloidal flux.,Yes
+,Phi,vector,Toroidal magnetic flux; relates to toroidal field strength.,No
+,vpr,vector,Derivative of toroidal flux.,No
+,R_in,vector,Inner major radius of each flux surface.,Yes
+,R_out,vector,Outer major radius of each flux surface.,Yes
+,area,vector,Cross‑sectional area of each flux surface.,No
+,delta,vector,Plasma triangularity; describes shaping of outer contour.,Yes
+,delta_lower,vector,Lower triangularity; shape near the bottom of plasma.,Yes
+,delta_upper,vector,Upper triangularity; shape near the top of plasma.,Yes
+,elongation,vector,Vertical stretching of plasma cross‑section; increases performance.,Yes
+,g0,vector,Metric coefficient from equilibrium model (geometry factor).,No
+,g1,vector,Metric coefficient from equilibrium model.,No
+,g2,vector,Metric coefficient affecting curvature and stability.,No
+,g3,vector,Metric coefficient affecting magnetic shear and shaping.,No
+,magnetic_shear,vector,Rate of change of q with radius; influences turbulence and stability.,Yes
+,q,vector,Safety factor; number of toroidal turns per poloidal turn for field lines—key for MHD stability.,Yes
+,r_mid,vector,Midplane minor radius of each flux surface.,No
+,volume,vector,Volume enclosed by each flux surface.,No
+Current-related profiles,,,,
+,Ip_profile,vector,Cumulative plasma current versus radius.,No
+,Ip_profile_from_geo,vector,Plasma current reconstructed from geometry.,No
+,j_bootstrap,vector,Self‑generated current from pressure gradients (bootstrap current).,No
+,j_ecrh,vector,Current driven by electron cyclotron heating.,No
+,j_external,vector,Other externally driven current (typically zero).,No
+,j_ohmic,vector,Ohmically‑driven current density from transformer action.,No
+,j_total,vector,Total current density; main driver of magnetic structure.,No
+,psi_from_Ip,vector,Flux reconstructed from current profile.,No
+,psi_from_geo,vector,Flux reconstructed from geometric model.,No
+Transport coefficients,,,,
+,D_turb_e,vector,Electron particle diffusivity due to turbulence.,No
+,V_turb_e,vector,Electron convective velocity due to turbulence.,No
+,chi_turb_e,vector,Electron heat diffusivity from turbulence.,No
+,chi_turb_i,vector,Ion heat diffusivity from turbulence; describes heat spreading.,No
+,ei_exchange,vector,Energy exchange between electrons and ions.,No
+,sigma_parallel,vector,Parallel electrical conductivity.,No
+"Heating, radiation, and power profiles",,,,
+,p_alpha_e,vector,Heating power density from alpha particles to electrons.,No
+,p_alpha_i,vector,Heating power density from fusion alpha particles to ions.,No
+,p_cyclotron_radiation_e,vector,Cyclotron radiation power loss from electrons.,No
+,p_ecrh_e,vector,Power deposition from electron cyclotron heating.,No
+,p_generic_heat_e,vector,Generic heating added to electrons.,No
+,p_generic_heat_i,vector,Generic heating added to ions (usually unused).,No
+,p_impurity_radiation_e,vector,Radiative power loss from impurities.,No
+,p_ohmic_e,vector,Ohmic heating power delivered to electrons.,Yes
+Pressure and toroidal currents,,,,
+,F,vector,Toroidal field function,No
+,FFprime,vector,Derivative of the squared toroidal field function; part of Grad-Shafranov equilibrium equation.,No
+,pprime,vector,Radial derivative of pressure relative to flux; important for equilibrium.,No
+,pressure_thermal_e,vector,Thermal pressure from electrons.,No
+,pressure_thermal_i,vector,Thermal pressure from ions.,No
+,pressure_thermal_total,vector,Total plasma thermal pressure.,No
+Other profiles,,,,
+,g0_over_vpr,vector,Metric tensor element.,No
+,g1_over_vpr,vector,Metric tensor element.,No
+,g1_over_vpr2,vector,Metric tensor element.,No
+,g2g3_over_rhon,vector,Metric tensor element.,No
+,j_generic_current,vector,Placeholder for other current drive sources.,No
+,v_loop,vector,v_loop radial profile,No
+Confinement / performance indicators,,,,
+,H20,scalar,H20 scalar measurement,Yes
+,H89P,scalar,H89P scalar measurement,Yes
+,H97L,scalar,H97L scalar measurement,Yes
+,H98,scalar,Performance factor vs ITER H‑mode scaling; >1 means better than expected.,Yes
+,Q_fusion,scalar,Fusion gain: fusion power divided by external heating.,Yes
+,beta_N,scalar,Normalized beta; key metric for high‑performance operation.,Yes
+,beta_pol,scalar,Poloidal beta; relates to shaping and stability.,Yes
+,beta_tor,scalar,Toroidal beta; fraction of pressure relative to magnetic pressure.,Yes
+,dW_thermal_dt,scalar,Change in stored energy,Yes
+,tau_E,scalar,Energy confinement time; how long heat stays in plasma.,Yes
+Heating power accounting,,,,
+,E_aux,scalar,Total auxiliary heating energy delivered so far.,Yes
+,E_fusion,scalar,Total fusion energy generated so far.,Yes
+,P_alpha_e,scalar,Alpha heating power deposited into electrons.,No
+,P_alpha_i,scalar,Alpha heating power deposited into ions.,No
+,P_alpha_total,scalar,Total alpha heating power (main internal heating source in a burning plasma).,Yes
+,P_aux_e,scalar,Total auxiliary heating delivered to electrons.,No
+,P_aux_i,scalar,Total auxiliary heating delivered to ions.,No
+,P_aux_total,scalar,Total auxiliary heating power.,Yes
+,P_bremsstrahlung_e,scalar,Total bremsstrahlung radiation power loss from electrons.,No
+,P_cyclotron_e,scalar,Cyclotron radiation losses from electrons.,Yes
+,P_ei_exchange_e,scalar,Energy transfered to electrons from ions.,No
+,P_ei_exchange_i,scalar,Energy transfered to ions from electrons.,No
+,P_external_injected,scalar,Total externally injected heating power from all sources.,No
+,P_ohmic_e,scalar,Ohmic heating.,No
+Scrape-off layer (plasma edge) power,,,,
+,P_SOL_e,scalar,P_SOL_e scalar measurement,No
+,P_SOL_i,scalar,P_SOL_i scalar measurement,No
+,P_SOL_total,scalar,Total power flowing to the scrape‑off layer.,Yes
+Global geometry,,,,
+,B_0,scalar,Toroidal magnetic field at magnetic axis.,Yes
+,R_major,scalar,Major radius of plasma center.,Yes
+,a_minor,scalar,Minor radius of plasma cross‑section.,Yes
+Safety factor-related scalars,,,,
+,q95,scalar,Safety factor at 95% radius; strong stability indicator.,Yes
+,q_min,scalar,Minimum safety factor; low values risk instabilities.,Yes
+,rho_q_min,scalar,Radial location of minimum q.,Yes
+External fueling sources,,,,
+,S_gas_puff,scalar,Gas puff fueling source.,Yes
+,S_generic_particle,scalar,Pellet injection fueling source.,Yes
+,S_pellet,scalar,Generic particle source.,Yes
+,S_total,scalar,Sum of all fueling sources.,Yes
+Energetics,,,,
+,W_pol,scalar,Poloidal magnetic field energy.,Yes
+,W_thermal_e,scalar,Electron stored thermal energy in plasma.,Yes
+,W_thermal_i,scalar,Ion stored thermal energy in plasma.,Yes
+,W_thermal_total,scalar,Total stored thermal energy in plasma.,Yes
+"Densities, averages, and Greenwald fraction",,,,
+,fgw_n_e_line_avg,scalar,Line-averaged Greenwald fraction.,Yes
+,fgw_n_e_volume_avg,scalar,Volume-averaged Greenwald fraction.,Yes
+,n_e_line_avg,scalar,Line-averaged electron density.,Yes
+,n_e_volume_avg,scalar,Volume-averaged electron density.,Yes
+Other scalars,,,,
+,A_i,scalar,Mass number of the main ion species.,Yes
+,A_impurity,scalar,Mass number of the main impurity species.,Yes
+,I_aux_generic,scalar,Net external driven current from generic systems.,Yes
+,I_bootstrap,scalar,Total bootstrap current.,Yes
+,I_ecrh,scalar,Current driven by ECRH.,Yes
+,P_LH,scalar,Power threshold estimate for L–H transition.,No
+,P_LH_high_density,scalar,Power threshold estimate for L–H transition.,No
+,P_LH_min,scalar,Power threshold estimate for L–H transition.,No
+,P_aux_generic_e,scalar,Generic deposition of heating power.,No
+,P_aux_generic_i,scalar,Generic deposition of heating power.,No
+,P_icrh_e,scalar,Electron totals for ICRH heating power.,No
+,P_icrh_i,scalar,Ion totals for ICRH heating power.,No
+,P_icrh_total,scalar,Total ICRH heating power.,Yes
+,P_radiation_e,scalar,P_radiation_e scalar measurement.,No
+,Phi_b,scalar,Boundary toroidal flux.,Yes
+,Phi_b_dot,scalar,Derivative of the boundary toroidal flux.,Yes
+,T_e_volume_avg,scalar,Electron temperature averaged over plasma volume.,No
+,T_i_volume_avg,scalar,Ion temperature averaged over volume.,No
+,drho,scalar,Spacing between radial grid points (for the profile arrays).,No
+,drho_norm,scalar,Normalized radial grid points spacing.,No
+,li3,scalar,Lithium-3 internal inductance.,Yes
+,n_e_min_P_LH,scalar,n_e_min_P_LH scalar measurement,No
+,n_i_line_avg,scalar,Line-averaged ion density.,No
+,n_i_volume_avg,scalar,Volume-averaged ion density.,No
+,rho_b,scalar,rho_b scalar measurement.,No
+,rho_q_2_1_first,scalar,First/second crossings of q = m/n surface.,No
+,rho_q_2_1_second,scalar,First/second crossings of q = m/n surface.,No
+,rho_q_3_1_first,scalar,First/second crossings of q = m/n surface.,No
+,rho_q_3_1_second,scalar,First/second crossings of q = m/n surface.,No
+,rho_q_3_2_first,scalar,First/second crossings of q = m/n surface.,No
+,rho_q_3_2_second,scalar,First/second crossings of q = m/n surface.,No
+,v_loop_lcfs,scalar,Loop voltage measured at the last closed flux surface.,Yes

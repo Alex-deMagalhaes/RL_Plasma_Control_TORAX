@@ -1,0 +1,8 @@
+NAME,DESCRIPTION
+Ip,Plasma current command
+NBI_power,Neutral beam injected power
+NBI_tor_aim,NBI toroidal aiming parameter
+NBI_pol_aim,NBI poloidal aiming parameter
+ECRH_power,ECRH injected power
+ECRH_tor_aim,ECRH toroidal aiming parameter
+ECRH_pol_aim,ECRH poloidal aiming parameter
